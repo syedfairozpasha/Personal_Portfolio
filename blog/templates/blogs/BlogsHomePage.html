@@ -1,0 +1,66 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>My Blog</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Syed Fairoz Pasha</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-item nav-link" href="https://www.linkedin.com/in/syed-fairoz-pasha-4a92635">LinkedIn</a>
+        <a class="nav-item nav-link active" href="#">Blog</a>
+        <a class="nav-item nav-link" href="#">Resume</a>
+      </div>
+    </div>
+  </nav>
+</head>
+<body>
+  <br />
+  <br />
+  <div class="container">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-5 font-italic mb-auto">Hello ! Welcome to Syed Fairoz Pasha Blog page</h1>
+        <p class="lead my-4">THis is the blog page to discuss everything related to Python</p>
+      </div>
+    </div>
+{% for blg in blogs.all %}
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">{{blg.title}}</strong>
+            <div class="mb-1 text-muted">{{blg.shortDate}}</div>
+            <br />
+            <p class="card-text mb-auto">{{blg.short_summary}}</p>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+          <img class="img-fluid" src="{{blg.Image.url}}"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <main role="main" class="container">
+
+
+  </main><!-- /.container -->
+
+  <footer class="blog-footer">
+    <div class="container text-center">
+      <p>© Syed Fairoz Pasha {% now "Y" %}</P>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
